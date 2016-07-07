@@ -575,7 +575,7 @@
           },
           "targets": [
             {
-              "expr": "node_filesystem_free{device=~\"none\"} / node_filesystem_size{device=~\"none\"}",
+              "expr": "node_filesystem_free{device=~\"none\",instance=~\"$server\"} / node_filesystem_size{device=~\"none\",instance=~\"$server\"}",
               "intervalFactor": 2,
               "refId": "A",
               "step": 60,
