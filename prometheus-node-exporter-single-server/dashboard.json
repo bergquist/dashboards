@@ -284,7 +284,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_memory_MemFree{instance=~\"$server\"}",
+              "expr": "node_memory_MemAvailable{instance=~\"$server\"}",
               "intervalFactor": 2,
               "legendFormat": "free memory",
               "metric": "memo",
@@ -330,9 +330,9 @@
           "colorBackground": false,
           "colorValue": false,
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
+            "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
-            "rgba(245, 54, 54, 0.9)"
+            "rgba(50, 172, 45, 0.97)"
           ],
           "datasource": "${DS_PROMETHEUS}",
           "editable": true,
@@ -383,14 +383,14 @@
           },
           "targets": [
             {
-              "expr": "(node_memory_MemFree{instance=~\"$server\"} / node_memory_MemTotal{instance=~\"$server\"}) * 100",
+              "expr": "(node_memory_MemAvailable{instance=~\"$server\"} / node_memory_MemTotal{instance=~\"$server\"}) * 100",
               "intervalFactor": 2,
               "refId": "A",
               "step": 60,
               "target": ""
             }
           ],
-          "thresholds": "70,85",
+          "thresholds": "10, 20",
           "title": "Free memory",
           "type": "singlestat",
           "valueFontSize": "80%",
@@ -522,9 +522,9 @@
           "colorBackground": false,
           "colorValue": false,
           "colors": [
-            "rgba(50, 172, 45, 0.97)",
+            "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
-            "rgba(245, 54, 54, 0.9)"
+            "rgba(50, 172, 45, 0.97)"
           ],
           "datasource": "${DS_PROMETHEUS}",
           "editable": true,
@@ -575,14 +575,14 @@
           },
           "targets": [
             {
-              "expr": "node_filesystem_free{device=~\"none\"} / node_filesystem_size{device=~\"none\"}",
+              "expr": "node_filesystem_free{device=~\"none\",instance=~\"$server\"} / node_filesystem_size{device=~\"none\",instance=~\"$server\"}",
               "intervalFactor": 2,
               "refId": "A",
               "step": 60,
               "target": ""
             }
           ],
-          "thresholds": "0.75,0.90",
+          "thresholds": "0.10, 0.25",
           "title": "Free disk space",
           "type": "singlestat",
           "valueFontSize": "80%",
@@ -759,7 +759,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 1,
+  "version": 8,
   "links": [],
   "gnetId": 22
 }
