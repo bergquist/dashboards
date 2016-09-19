@@ -575,7 +575,7 @@
           },
           "targets": [
             {
-              "expr": "node_filesystem_free{device=~\"none\",instance=~\"$server\"} / node_filesystem_size{device=~\"none\",instance=~\"$server\"}",
+              "expr": "min(node_filesystem_free{device!=\"rootfs\",instance=~\"$server\"} / node_filesystem_size{device!=\"rootfs\",instance=~\"$server\"})",
               "intervalFactor": 2,
               "refId": "A",
               "step": 60,
@@ -583,7 +583,7 @@
             }
           ],
           "thresholds": "0.10, 0.25",
-          "title": "Free disk space",
+          "title": "Free disk space (lowest mountpoint)",
           "type": "singlestat",
           "valueFontSize": "80%",
           "valueMaps": [
