@@ -383,7 +383,7 @@
           },
           "targets": [
             {
-              "expr": "100 - (node_memory_MemFree{instance=~\"$server\"} / node_memory_MemTotal{instance=~\"$server\"}) * 100",
+              "expr": "(node_memory_MemFree{instance=~\"$server\"} / node_memory_MemTotal{instance=~\"$server\"}) * 100",
               "intervalFactor": 2,
               "refId": "A",
               "step": 60,
