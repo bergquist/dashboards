@@ -284,7 +284,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_memory_MemAvailable{instance=~\"$server\"}",
+              "expr": "node_memory_MemTotal{instance=~\"$server\"} - node_memory_MemFree{instance=~\"$server\"}",
               "intervalFactor": 2,
               "legendFormat": "free memory",
               "metric": "memo",
