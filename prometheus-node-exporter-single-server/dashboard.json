@@ -53,15 +53,6 @@
       "height": "250px",
       "panels": [
         {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
-          },
-          "alerting": {},
           "aliasColors": {},
           "bars": false,
           "datasource": "${DS_PROMETHEUS}",
